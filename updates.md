@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-07-14"
 
 ---
 
@@ -13,6 +13,16 @@ lastupdated: "2017-06-12"
 {: #latest_updates}
 
 ## A list of the latest updates in the Liberty buildpack.
+
+### July 14, 2017: Updated Liberty buildpack v3.11-20170710-0312
+* The default Liberty runtime version `17.0.0.2` was updated to include the IFPI83713 iFix.
+* The monthly Liberty runtime version was updated to the [2017.7.0.0](https://developer.ibm.com/wasdev/blog/2017/07/07/beta-websphere-liberty-tools-july-2017/) release.
+* The buildpack also contains updated IBM JREs: version 8 SR4 FP7 and version 7.1 SR4 FP5.
+* The default Cloudant Library is now the official [java-cloudant](https://github.com/cloudant/java-cloudant), the [Ektorp library](https://github.com/helun/Ektorp) is still available as an option, for details on this change see the [blog post](https://www.ibm.com/blogs/bluemix/2017/05/default-library-change-cloudant-auto-wiring-liberty-buildpack/).
+* The default heap size ratio is now 50% when your application has less than 512mb of memory, if it has more than 512mb it will still be 75%.
+* A new staging task log is now generated, which allows for easier debugging of staging errors.
+* The Node.js runtime that is used by the [App Management utility](/docs/manageapps/app_mng.html) was updated to the 6.13.0 version.
+* The buildpack also provides an updated agent for the [Auto-Scaling service](/docs/services/Auto-Scaling/index.html).
 
 ### June 12, 2017: Updated Liberty buildpack v3.10-20170525-1107
 * The default Liberty runtime version was updated to the 17.0.0.2 release.
