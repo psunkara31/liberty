@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-31"
+lastupdated: "2017-057-14"
 
 ---
 
@@ -38,6 +38,35 @@ cd java-secure-app
 mvn install liberty:run-server
 ```
 View the app at http://localhost:9080/GetStartedSecureJava/
+
+## Enforce HTTPS on all pages in your application
+{: #enforce_https}
+
+To enforce HTTPS instead of HTTP on all pages in your application, the following changes need to be made.
+
+Modify your server.xml to enable the `appSecurity-2.0` feature:
+
+```
+  <featureManager>
+    <feature>appSecurity-2.0</feature>
+  </featureManager>
+```
+
+Modify your web.xml file to include the following security constraint:
+
+```
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Entire Application</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+```
+
+This makes your application force all connections to use HTTPS automatically and will not allow any HTTP connections.
 
 ## More Info
 {: more}
